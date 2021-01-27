@@ -123,6 +123,28 @@
 		}
 	}
 }
+.sec_effect {
+	.animate {
+		&.zoomIn {
+			-webkit-transition: .8s ease-in-out;
+			-moz-transition: .8s ease-in-out;
+			-o-transition: .8s ease-in-out;
+			transition: .8s ease-in-out;
+			-webkit-transform: scale3d(2.5, 2.5, 2.5);
+			-ms-transform: scale3d(2.5, 2.5, 2.5);
+			transform: scale3d(2.5, 2.5, 2.5)
+		}
+	}
+}
+.sec_effect.is-active {
+	.animate {
+		&.zoomIn {
+			-webkit-transform: scale3d(.7, .7, .7);
+			-ms-transform: scale3d(.7, .7, .7);
+			transform: scale3d(.7, .7, .7)
+		}
+	}
+}
 
 .is-active {
 	.animate {

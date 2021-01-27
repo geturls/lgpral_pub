@@ -1,11 +1,19 @@
 // scroll animate
 var isVisible = false;
+var lastScrollTop = 0;
 $(window).on('scroll',function() {
 	var st = $(this).scrollTop();
+
 	if(st > 0) {
 		$('.titlechart').addClass('fixed')
 	}else{
 		$('.titlechart').removeClass('fixed')
+
+		if($('.sec_zoom').hasClass('_show')) {
+			if(st < lastScrollTop){ // upscroll code
+				$('.sec_zoom').removeClass('_show');
+			}
+		}
 	}
 
 	$('.pral_wrap .section').each(function(){
@@ -13,6 +21,7 @@ $(window).on('scroll',function() {
 
 			if($(this).hasClass('sec_intro')) {
 				$('.titlechart').find('li').removeClass('active')
+				$('.sec_zoom').removeClass('_show');
 			}
 
 			if($(this).hasClass('sec_skill')) {
@@ -31,14 +40,11 @@ $(window).on('scroll',function() {
 			if($(this).hasClass('sec_zoom')) {
 				var video = $(this).find('video').get(0);
 				if(video !== undefined) {
-					// video.currentTime = 0;
-					video.play();
+					if(!$('.sec_zoom').hasClass('_show')) {
+						video.play();
+					}
 				}
 				$('.sec_effect').find('video').removeClass('showed')
-			}
-
-			if($(this).hasClass('sec_zoom2')) {
-				$('.sec_zoom').find('video').get(0).pause();
 			}
 				
 			if($(this).hasClass('sec_effect')) {
@@ -224,37 +230,56 @@ var scrCtrl = new ScrollMagic.Controller;
 $('.section').each(function(i,e) {
 	var r = i + 1;
 	$(this).attr('data-slide', 'ani0' + r);
-	
-	new ScrollMagic.Scene({
-		triggerElement: this,
-		triggerHook: 'onEnter',
-		offset:'250',
-	})
-	.addTo(scrCtrl)
-	.setClassToggle("[data-slide=ani0"+ r +"]", "is-active").addTo(scrCtrl)
-	.on('enter', function () {
-	});
-	// new ScrollMagic.Scene({
-	// 	triggerElement: this,
-	// 	triggerHook: 'onLeave',
-	// 	offset:'-100'
-	// })
-	// .addTo(scrCtrl)
-	// .on('leave', function () {
-	// });
 
-	// if($(this).hasClass('sec_zoom')){
-		// var effectpin = new ScrollMagic.Scene({
-		// 	triggerElement: '.sec_zoom',
-		// 	triggerHook: 0.0,
-		// 	duration: "100%",
-		// 	// reverse: true
-		// })
-		// .setPin('.sec_zoom')
-		// .addTo(scrCtrl);
-	// }
-	// sec_zoom
-	if($(this).hasClass('sec_skill')) {
+	if(!$(this).hasClass('sec_zoom')) {
+		new ScrollMagic.Scene({
+			triggerElement: this,
+			triggerHook: 'onEnter',
+			duration: '120%',
+			offset:'230',
+		})
+		.addTo(scrCtrl)
+		.setClassToggle("[data-slide=ani0"+ r +"]", "is-active").addTo(scrCtrl)
+		.on('enter', function () {
+		});
+	}
+
+	if($(this).hasClass('sec_zoom')){ // sec_zoom
+		var cover = $('.sec_zoom').find('.cover');
+
+		TweenMax.set(cover, {opacity:0});
+		var cover_set = new TimelineMax()
+				.to(cover, 0.7, {opacity: 1, ease: Cubic.easeInOut, delay: 0.5})
+		
+		var zoompin = new ScrollMagic.Scene({
+			triggerElement: '.sec_zoom',
+			triggerHook: 0.0,
+			duration: "1100",
+			// offset: 0
+			reverse: true
+		})
+		.setPin('.sec_zoom')
+		.setTween(cover_set)
+		.addTo(scrCtrl)
+		.on('enter', function () {
+			if(i == 1) {
+				var video = $('.sec_zoom').find('video').get(0);
+				$('.sec_zoom').find('video').on(
+					"timeupdate",
+					function(e){
+						if(video.currentTime > 2 && video.currentTime < 3) {
+							video.pause();
+							$('.sec_zoom').addClass('_show');
+	
+							return false;
+						}
+				});
+			}
+		});
+		zoompin.offset('0');
+	}
+
+	if($(this).hasClass('sec_skill')) { 	// sec_skill
 		$('.sec_skill .swiper-slide').each(function () {
 			if($(this).hasClass('swiper-slide-active')){
 				var video = $(this).find('video').get(0);
@@ -263,19 +288,8 @@ $('.section').each(function(i,e) {
 				}
 			}
 		});
+		$('.sec_zoom').removeClass('_show');
 	}
-	// sec_skill
-	// if($(this).hasClass('sec_effect2')){
-	// 	var effectpin = new ScrollMagic.Scene({
-	// 		triggerElement: '.sec_effect2',
-	// 		triggerHook: 0.0,
-	// 		duration: "150%",
-	// 		reverse: true
-	// 	})
-	// 	.setPin('.sec_effect2')
-	// 	.addTo(scrCtrl);
-	// }
-	// sec_effect
 });
 
 // swipe fn
