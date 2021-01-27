@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko" class="web">
+<head>
+	<meta charset="euc-kr">
+	<meta name="description" content="아이케어" />
+	<meta name="keywords" content="EWN1,아이케어" />
+	<title>LG전자 : 아이케어 | EWN1</title>
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0" />
+	<link rel="shortcut icon" href="/lg_favicon.ico" />
+	<!-- common css -->
+	<link rel="stylesheet" type="text/css" href="./assets/css/LGE.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/swiper.css">
+
+	<!-- common js -->
+	<script type="text/javascript" src="./assets/js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="./assets/js/mGnb.js"></script>
+	<script type="text/javascript" src="./assets/js/common/commonUtil.js"></script>
+	<!-- <script type="text/javascript" src="./assets/js/login/ssoParameter.js"></script> -->
+	<!-- <script type="text/javascript" src="./assets/js/libs/jquery.event.move.js"></script>
+	<script type="text/javascript" src="./assets/js/libs/jquery.twentytwenty.js"></script> -->
+	<script type="text/javascript" src="./assets/js/libs/swiper.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="./assets/css/usp.css">
+	<link rel="stylesheet" type="text/css" href="./assets/css/usp_module.css">
+	<!-- <script type="text/javascript" src="./assets/js/requireSet.js"></script> -->
+	<!-- <script data-main="./assets/js/usp.js" src="./assets/js/require.js"></script> -->
+	<!-- <script type="text/javascript" src="./assets/js/product/productDetail.js"></script> -->
+	<!-- <script data-main="./assets/js/product_list.js" src="./assets/js/require.js"></script> -->
+	<!-- <script type="text/javascript" src="https://connect.facebook.net/ko_KR/all.js"></script> -->
+</head>
+
+<body>
+	<div id="lgekorWrap">
+		<dl id="skip_nav">
+			<dt>바로가기 메뉴</dt>
+			<dd><a href="#headerWrap">주메뉴 바로가기</a></dd>
+			<dd><a href="#contentWrap">콘텐츠 바로가기</a></dd>
+			<dd><a href="#footerWrap">하단영역 바로가기</a></dd>
+		</dl>
+		<!-- #headerWrap -->
+		@@include('./inc/headerWrap.inc',{
+		})
+		<!--// #headerWrap -->
+
+
+		<!-- contentWrap -->
+		<div id="contentWrap">
+			<div class="usp usp_module pral_wrap">
+
+				<script type="text/javascript" src="./assets/js/ui_pral.js"></script>
+				<section class="responsive title">
+					<section>
+						<button type="button" class="uspVisualClose icon rd-close" title="썸네일 닫기"><span class="ir">close</span></button>
+						<h3 class="headLine centerd">피부 속 콜라겐을 채워 매일 어려지는 눈가
+							<br>LG 프라엘 아이케어</h3>
+					</section>
+				</section>
+			</div>
+		</div>
+		<!--// contentWrap -->
+
+
+
+		<!-- footerWrap -->
+		@@include('./inc/footer.inc',{
+		})
+		<!--// footerWrap -->
+
+	</div>
+	<!--// lgekorWrap -->
+
+</body>
+
+</html>
