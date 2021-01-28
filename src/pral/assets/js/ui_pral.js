@@ -236,7 +236,7 @@ $('.section').each(function(i,e) {
 			triggerElement: this,
 			triggerHook: 'onEnter',
 			duration: '120%',
-			offset:'230',
+			offset:'210',
 		})
 		.addTo(scrCtrl)
 		.setClassToggle("[data-slide=ani0"+ r +"]", "is-active").addTo(scrCtrl)
@@ -254,7 +254,7 @@ $('.section').each(function(i,e) {
 		var zoompin = new ScrollMagic.Scene({
 			triggerElement: '.sec_zoom',
 			triggerHook: 0.0,
-			duration: "1100",
+			duration: "1200",
 			// offset: 0
 			reverse: true
 		})
@@ -306,7 +306,7 @@ if($('#kvswipe').length > 0){
 }
 if($('#skillswipe').length > 0){ 
 	var vh = $('#skillswipe .swiper-slide').find('.video').innerHeight();
-	$('#skillswipe').find('.swp_paging').css('top', vh + 150);
+	$('#skillswipe').find('.swp_paging').css('top', vh + 210);
 
 	var skillswipe = new Swiper('#skillswipe', {
 		slidesPerView: 1,
@@ -340,7 +340,7 @@ if($('#skillswipe').length > 0){
 
 	$(window).resize(function (){
 		var vh = $('#skillswipe .swiper-slide').find('.video').innerHeight();
-		$('#skillswipe').find('.swp_paging').css('top', vh + 150);
+		$('#skillswipe').find('.swp_paging').css('top', vh + 210);
 	});
 }
 if($('#howtoswipe').length > 0){ 
@@ -376,7 +376,7 @@ if($('#howtoswipe').length > 0){
 						"timeupdate",
 						function(e){
 							if(video.currentTime == video.duration) {
-								if(howtoswipe.activeIndex == 3) {
+								if(howtoswipe.activeIndex == 5) {
 									$('.sec_howto').find('.dim').hide()
 									var a0 = setTimeout(function(){
 										$('.howtoswipe._swipe').addClass('active')
@@ -395,7 +395,7 @@ if($('#howtoswipe').length > 0){
 							function(e){
 								if(video.currentTime == video.duration) {
 									howtoswipe.slideTo(howtoswipe.activeIndex + 1, 600);
-									if(howtoswipe.activeIndex == 3) {
+									if(howtoswipe.activeIndex == 5) {
 										$('#howtoswipe').removeClass('_auto');
 										return false;
 									}
