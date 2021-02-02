@@ -238,7 +238,7 @@ video {
 	}
 	.desc {
 		padding:1.875rem;
-		font-size:0.75rem;
+		font-size:0.5625rem;
 		font-weight: 300;
 		color:#888888;
 		background-color: #fff;
@@ -246,19 +246,25 @@ video {
 			position:relative;
 			display: block;
 			padding-left:8px;
-			line-height: 1.6;
-			letter-spacing: -.3px;
+			line-height: 1.7;
+			letter-spacing: -.1px;
 			font-weight: 300;
+			font-size: inherit;
 			&:before {
 				content: '*';
 				position:absolute;
 				left:0;
-				top:3px;
-				font-size:0.75rem;
+				top:1px;
+				font-size: inherit;
 				font-weight: 300;
 				color:#888888;
 			}
 		}
+	}
+	video {
+		outline: none;
+		border:0;
+		background-color:transparent;
 	}
 }
 
@@ -319,7 +325,7 @@ video {
 .sec_intro {
 	width: 100%;
 	// height:100vh;
-	height:calc(100vh - 70px);
+	height:calc(100vh - 50px);
 	padding-bottom:35%;
 	background: {
 		color:#f8f9fa;
@@ -380,6 +386,26 @@ video {
 		-moz-transition: 0.6s ease-in-out;
 		-o-transition: 0.6s ease-in-out;
 		transition: 0.6s ease-in-out;
+	}
+	.info {
+		margin-top:70px;
+		margin-bottom:30px;
+		.t1 {
+			color:#888888;
+			font-size:23px;
+		}
+		strong {
+			display: block;
+			margin-top:9px;
+			color:#222222;
+			font-size:32px;
+			font-weight: 700;
+		}
+		.t2 {
+			margin-top:9px;
+			color:#222222;
+			font-size:1rem;
+		}
 	}
 	.figure {
 		position: absolute;
@@ -449,6 +475,7 @@ video {
 			-ms-transform: translate(-50%, -50%);
 			-o-transform: translate(-50%, -50%);
 			transform: translate(-50%, -50%);
+			margin:0;
 			strong {
 				font-size:28px;
 				font-weight: 700;
@@ -518,7 +545,8 @@ video {
 	position:relative;
 	background-color: #fff;
 	z-index: 1;
-	padding-top:60px;
+	// padding-top:60px;
+	margin-top:-100px;
 	.title {
 		position:relative;
 		min-height: 120px;
@@ -945,7 +973,7 @@ video {
 	}
 	.bg {
 		position:relative;
-		padding-top:129%;
+		padding-top:145%;
 		background: {
 			image: url(../images/function_bg.jpg);
 			size:cover;
@@ -955,7 +983,7 @@ video {
 		overflow: hidden;
 		.cont {
 			position:absolute;
-			top:25px;
+			top:30px;
 			left:25px;
 			dl {
 				margin-bottom:7px;
@@ -1498,9 +1526,9 @@ video {
 	}
 	.layer_head {
 		position: relative;
-		padding:45px 23px 10px;
+		padding:48px 23px 10px;
 		.title {
-			font-size:19px;
+			font-size:20px;
 			font-weight: 900;
 			letter-spacing: -1px;
 		}
