@@ -246,40 +246,40 @@ $('.section').each(function(i,e) {
 		});
 	}
 
-	if($(this).hasClass('sec_zoom')){ // sec_zoom
-		var cover = $('.sec_zoom').find('.cover');
+	// if($(this).hasClass('sec_zoom')){ // sec_zoom
+	// 	var cover = $('.sec_zoom').find('.cover');
 
-		TweenMax.set(cover, {opacity:0});
-		var cover_set = new TimelineMax()
-				.to(cover, 0.5, {opacity: 1, ease: Cubic.easeInOut, delay: 0.1})
+	// 	TweenMax.set(cover, {opacity:0});
+	// 	var cover_set = new TimelineMax()
+	// 			.to(cover, 0.5, {opacity: 1, ease: Cubic.easeInOut, delay: 0.1})
 		
-		var zoompin = new ScrollMagic.Scene({
-			triggerElement: '.sec_zoom',
-			triggerHook: 0.0,
-			duration: "1250",
-			// offset: 0
-			reverse: true
-		})
-		.setPin('.sec_zoom')
-		.setTween(cover_set)
-		.addTo(scrCtrl)
-		.on('enter', function () {
-			if(i == 1) {
-				var video = $('.sec_zoom').find('video').get(0);
-				$('.sec_zoom').find('video').on(
-					"timeupdate",
-					function(e){
-						if(video.currentTime > 2 && video.currentTime < 3) {
-							video.pause();
-							$('.sec_zoom').addClass('_show');
+	// 	var zoompin = new ScrollMagic.Scene({
+	// 		triggerElement: '.sec_zoom',
+	// 		triggerHook: 0.0,
+	// 		duration: "1250",
+	// 		// offset: 0
+	// 		reverse: true
+	// 	})
+	// 	.setPin('.sec_zoom')
+	// 	.setTween(cover_set)
+	// 	.addTo(scrCtrl)
+	// 	.on('enter', function () {
+	// 		if(i == 1) {
+	// 			var video = $('.sec_zoom').find('video').get(0);
+	// 			$('.sec_zoom').find('video').on(
+	// 				"timeupdate",
+	// 				function(e){
+	// 					if(video.currentTime > 2 && video.currentTime < 3) {
+	// 						video.pause();
+	// 						$('.sec_zoom').addClass('_show');
 	
-							return false;
-						}
-				});
-			}
-		});
-		zoompin.offset('0');
-	}
+	// 						return false;
+	// 					}
+	// 			});
+	// 		}
+	// 	});
+	// 	zoompin.offset('0');
+	// }
 
 	if($(this).hasClass('sec_skill')) { 	// sec_skill
 		$('.sec_skill .swiper-slide').each(function () {
@@ -308,7 +308,7 @@ if($('#kvswipe').length > 0){
 }
 if($('#skillswipe').length > 0){ 
 	var vh = $('#skillswipe .swiper-slide').find('.video').innerHeight();
-	$('#skillswipe').find('.swp_paging').css('top', vh + 210);
+	$('#skillswipe').find('.swp_paging').css('top', vh + 150);
 
 	var skillswipe = new Swiper('#skillswipe', {
 		slidesPerView: 1,
@@ -342,7 +342,7 @@ if($('#skillswipe').length > 0){
 
 	$(window).resize(function (){
 		var vh = $('#skillswipe .swiper-slide').find('.video').innerHeight();
-		$('#skillswipe').find('.swp_paging').css('top', vh + 210);
+		$('#skillswipe').find('.swp_paging').css('top', vh + 150);
 	});
 }
 if($('#howtoswipe').length > 0){ 
@@ -368,9 +368,8 @@ if($('#howtoswipe').length > 0){
 						if(video !== undefined) {
 							video.pause();
 						}
-
 						
-						if(howtoswipe.activeIndex == 5) {
+						if(howtoswipe.activeIndex == 2) {
 							$('.sec_howto').find('.dim').hide()
 							var a0 = setTimeout(function(){
 								$('.howtoswipe._swipe').addClass('active');
@@ -389,109 +388,7 @@ if($('#howtoswipe').length > 0){
 				});
 			}
 		}
-		// 	// slideChange: function () {
-		// 	// 	$('#howtoswipe .swiper-slide').each(function (i) {
-		// 	// 		var video = $(this).find('video').get(0);
-		// 	// 		if($(this).hasClass('swiper-slide-active')) {
-		// 	// 			// console.log(i)
-		// 	// 			// console.log($(this).activeIndex)
-		// 	// 			if(video !== undefined) {
-		// 	// 				video.pause();
-		// 	// 			}
-		// 	// 			// video.play();
-		// 	// 		}else{
-		// 	// 			// video.pause();
-		// 	// 			if(video !== undefined) {
-		// 	// 				video.play();
-		// 	// 			}
-		// 	// 			// $(this).find('video').on(
-		// 	// 			// 	"timeupdate",
-		// 	// 			// 	function(e){
-		// 	// 			// 		console.log($(this).find('video')[0])
-		// 	// 			// 		var at0 = setTimeout(function(){
-		// 	// 			// 			if(video.currentTime === video.duration) {
-		// 	// 			// 				howtoswipe.slideTo(howtoswipe.activeIndex + 1, 2000);
-		// 	// 			// 				if(howtoswipe.activeIndex == 5) {
-		// 	// 			// 					// console.log(howtoswipe.activeIndex)
-		// 	// 			// 					$('.sec_howto').find('.dim').hide()
-		// 	// 			// 					var a0 = setTimeout(function(){
-	
-		// 	// 			// 						$('.howtoswipe._swipe').addClass('active');
-		// 	// 			// 						$('#howtoswipe').removeClass('_auto');
-		// 	// 			// 						$('#howtoswipe').remove()
-		// 	// 			// 						video.pause();
-	
-		// 	// 			// 						clearTimeout(a0);
-		// 	// 			// 					}, 2000);
-		// 	// 			// 				}
-		// 	// 			// 			}
-
-		// 	// 			// 			clearTimeout(at0);
-		// 	// 			// 		}, 2000);
-		// 	// 			// });
-		// 	// 		}
-		// 	// 	});
-		// 	// 	$('#howtoswipe .swiper-slide').each(function () {
-		// 	// 		if(howtoswipe.activeIndex == $('#howtoswipe .swiper-slide').length - 1) {
-		// 	// 			var video = $(this).find('video').get(0);
-		// 	// 			$(this).find('video').on(
-		// 	// 				"timeupdate",
-		// 	// 				function(e){
-		// 	// 					if(video.currentTime == video.duration) {
-		// 	// 						if(howtoswipe.activeIndex == 5) {
-		// 	// 							$('.sec_howto').find('.dim').hide()
-		// 	// 							var a0 = setTimeout(function(){
-
-		// 	// 								$('.howtoswipe._swipe').addClass('active');
-		// 	// 								$('#howtoswipe').removeClass('_auto');
-		// 	// 								$('#howtoswipe').remove()
-		// 	// 								video.pause();
-
-		// 	// 								clearTimeout(a0);
-		// 	// 							}, video.duration);
-		// 	// 						}
-		// 	// 					}
-		// 	// 				}
-		// 	// 			);
-		// 	// 			// return false;
-		// 	// 		}else{
-		// 	// 			var video = $(this).find('video').get(0);
-		// 	// 			$(this).find('video').on(
-		// 	// 				"timeupdate",
-		// 	// 				function(e){
-		// 	// 						if(howtoswipe.activeIndex == 5) {
-		// 	// 							video.pause();
-		// 	// 							$('#howtoswipe').removeClass('_auto');
-
-		// 	// 							return false;
-		// 	// 						}else {
-		// 	// 							// if((howtoswipe.activeIndex + 1) == 1) {
-		// 	// 							// 	console.log(howtoswipe.activeIndex + 1)
-		// 	// 							// 	if(video.currentTime == video.duration) {
-		// 	// 							// 		howtoswipe.slideTo(2, 600);
-		// 	// 							// 	}
-		// 	// 							// }
-
-		// 	// 							// if(video.paused) {
-		// 	// 							// 	console.log(howtoswipe.activeIndex+1)
-		// 	// 							// 	howtoswipe.slideTo(howtoswipe.activeIndex + 1, 600);
-		// 	// 							// }else{
-
-		// 	// 							// }
-		// 	// 							if(video.currentTime == video.duration) {
-		// 	// 								var a1 = setTimeout(function(){
-		// 	// 									howtoswipe.slideTo(howtoswipe.activeIndex + 1, 800);
-
-		// 	// 									clearTimeout(a1);
-		// 	// 								}, video.duration);
-		// 	// 						}
-		// 	// 					}
-		// 	// 				}
-		// 	// 			);
-		// 	// 		}
-		// 	// 	});
-		// 	// },
-		// }
+		
 	});
 
 	var vh = $('#howtoswipe2 .swiper-slide').find('.video').innerHeight();
@@ -537,12 +434,6 @@ function layerOpen(layerId){
 	var curPos = $(window).scrollTop();
 	$('html').addClass('noscroll');
 	$('#' + layerId).addClass('is-visible');
-
-	// if(layerID == 'vodpop') {
-	// 	console.log(layerID)
-	// 	var video = $('.vodpop').find('video').get(0);
-	// 	video.play();
-	// }
 	
 	var layerID = $('#' + layerId);
 	layerID.attr({
