@@ -240,7 +240,7 @@ video {
 		padding:1.875rem;
 		font-size:10px;
 		font-weight: 300;
-		color:#888888;
+		color:#666;
 		background-color: #fff;
 		p {
 			position:relative;
@@ -250,6 +250,7 @@ video {
 			letter-spacing: -.1px; 
 			font-weight: 300; 
 			font-size: inherit;
+			color:inherit;
 			&:before {
 				content: '*';
 				position:absolute;
@@ -257,7 +258,7 @@ video {
 				top:1px;
 				font-size: inherit;
 				font-weight: 300;
-				color:#888888;
+				color: inherit;
 			}
 		}
 	}
