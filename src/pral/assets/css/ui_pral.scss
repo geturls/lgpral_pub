@@ -338,6 +338,12 @@ video {
 	padding-right: env(safe-area-inset-right);
 	.title {
 		margin-bottom:40px;
+		span {
+			display: inline;
+			font-size:inherit;
+			font-weight: inherit;
+			color:#d74367;
+		}
 	}
 	.row {
 		padding-top:50px;
@@ -1111,10 +1117,10 @@ video {
 			position:center center;
 		}
 		z-index: 1;
-		-webkit-transition: .3s ease-in-out;
-		-moz-transition: .3s ease-in-out;
-		-o-transition: .3s ease-in-out;
-		transition: .3s ease-in-out;
+		-webkit-transition: .9s ease-in-out;
+		-moz-transition: .9s ease-in-out;
+		-o-transition: .9s ease-in-out;
+		transition: .9s ease-in-out;
 		&.markOn {
 			visibility: visible;
 			opacity: 1;
@@ -1138,11 +1144,12 @@ video {
 			font-weight: 500;
 			font-size:0.9375rem;
 			color:#222;
+			line-height:1.5;
 			i {
 				display: inline-block;
 				position:absolute;
 				left:0;
-				top:0;
+				top:2px;
 				width:15px;
 				height:15px;
 				background: {
