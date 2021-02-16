@@ -16,7 +16,7 @@ $(window).on('scroll',function() {
 		}
 	}
 
-	$('.pral_wrap .section').each(function(){
+	$('.praleyecare_202102 .section').each(function(){
 		if (checkVisible($(this))&&!isVisible) {
 
 			if($(this).hasClass('sec_intro')) {
