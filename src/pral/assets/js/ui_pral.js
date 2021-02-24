@@ -302,13 +302,21 @@ if($('#howtoswipe').length > 0){
 	$('#howtoswipe').find('.swp_paging').css('top', vh - 5);
 
 	var howtoswipe = new Swiper('#howtoswipe', {
-		slidesPerView: 1,
-		spaceBetween: 0,
 		allowTouchMove: true,
 		pagination: '#howtoswipe .swiper-pagination',
 		paginationClickable: true,
 		autoplay: 5000,
 		autoplayDisableOnInteraction: false,
+		breakpoints: {
+			768: {
+				slidesPerView: 1,
+				spaceBetween: 0,
+			},
+			1024: {
+				slidesPerView: 3,
+				spaceBetween: 5,
+			},
+		},
 		onSlideChangeStart: function () {		
 			$('#howtoswipe .swiper-slide').each(function (i) {
 				if($(this).hasClass('swiper-slide-active')) {
@@ -340,11 +348,19 @@ if($('#howtoswipe').length > 0){
 	var vh = $('#howtoswipe2 .swiper-slide').find('.video').innerHeight();
 	$('#howtoswipe2').find('.swp_paging').css('top', vh - 5);
 	var howtoswipe2 = new Swiper('#howtoswipe2', {
-		slidesPerView: 1,
-		spaceBetween: 0,
 		allowTouchMove: true,
 		pagination: '#howtoswipe2 .swiper-pagination',
 		paginationClickable: true,
+		breakpoints: {
+			768: {
+				slidesPerView: 1,
+				spaceBetween: 0,
+			},
+			1024: {
+				slidesPerView: 3,
+				spaceBetween: 5,
+			},
+		},
 		on: {
 			slideChange: function () {
 				$('#howtoswipe2 .swiper-slide').each(function () {
