@@ -395,20 +395,20 @@ function prallayerOpen(layerId){
 	$('html').addClass('noscroll');
 	$('#' + layerId).addClass('is-visible');
 	
-	var layerID = $('#' + layerId);
-	layerID.attr({
+	var layerId = $('#' + layerId);
+	layerId.attr({
 		'aria-hidden': 'false',
 		'open': 'true',
 		'tabindex': '0'
 	});
-	if($('[role="dialog"]:visible').length <= 1 && isOpen == false) {
+	if($('[role="dialog"].is-visible').length <= 1 && isOpen == false) {
 		if($('#' + layerId).hasClass('layer_full')){
 			$('#contentWrap').css('top',-curPos);
 			$('#' + layerId).css('top',0);
 		} else {
 			$('#contentWrap').css('top',-curPos);
 		}
-		isOpen = true
+		isOpen = true;
 	}
 
 	var delay = setTimeout(function(){
