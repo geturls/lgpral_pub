@@ -167,26 +167,28 @@ $(window).on('scroll',function() {
 				}
 			}
 			if($(this).hasClass('sec_howto')) {
-				if($('#howtoswipe').hasClass('_auto')) {
-					var a0 = setTimeout(function(){
-						howtoswipe.slideTo(0);
-						clearTimeout(a0);
-					}, 1000);
-				}else{
-					var a0 = setTimeout(function(){
-						howtoswipe2.slideTo(0);
-
-						$('.sec_howto .swiper-slide').each(function () {
-							if($(this).hasClass('swiper-slide-active')){
-								var video = $(this).find('video').get(0);
-								if(video !== undefined) {
-									video.play();
+				if($(window).width() < 1024) {
+					if($('#howtoswipe').hasClass('_auto')) {
+						var a0 = setTimeout(function(){
+							howtoswipe.slideTo();
+							clearTimeout(a0);
+						}, 1000);
+					}else{
+						var a0 = setTimeout(function(){
+							// howtoswipe2.slideTo(0);
+	
+							$('.sec_howto .swiper-slide').each(function () {
+								if($(this).hasClass('swiper-slide-active')){
+									var video = $(this).find('video').get(0);
+									if(video !== undefined) {
+										video.play();
+									}
 								}
-							}
-						});
-
-						clearTimeout(a0);
-					}, 1000);
+							});
+	
+							clearTimeout(a0);
+						}, 1000);
+					}
 				}
 				$('.sec_howto .swiper-slide').each(function () {
 					if($(this).hasClass('swiper-slide-active')){
@@ -297,96 +299,130 @@ if($('#skillswipe').length > 0){
 		$('#skillswipe').find('.swp_paging').css('top', vh + 150);
 	});
 }
-if($('#howtoswipe').length > 0){ 
-	var vh = $('#howtoswipe .swiper-slide').find('.video').innerHeight();
-	$('#howtoswipe').find('.swp_paging').css('top', vh - 5);
-
-	var howtoswipe = new Swiper('#howtoswipe', {
-		allowTouchMove: true,
-		pagination: '#howtoswipe .swiper-pagination',
-		paginationClickable: true,
-		autoplay: 5000,
-		autoplayDisableOnInteraction: false,
-		breakpoints: {
-			768: {
-				slidesPerView: 1,
-				spaceBetween: 0,
+$(document).ready(function() {
+	if($('#howtoswipe').length > 0){ 
+		var vh = $('#howtoswipe .swiper-slide').find('.video').innerHeight();
+		$('#howtoswipe').find('.swp_paging').css('top', vh - 5);
+		
+		var settings2 = {
+			allowTouchMove: true,
+			pagination: '#howtoswipe .swiper-pagination',
+			paginationClickable: true,
+			autoplayDisableOnInteraction: true,
+			slidesPerView: 3,
+			spaceBetween: 5,
+			autoplay: false,
+			breakpoints: {
+				1024: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+				},
 			},
-			1024: {
-				slidesPerView: 3,
-				spaceBetween: 5,
-			},
-		},
-		onSlideChangeStart: function () {		
-			$('#howtoswipe .swiper-slide').each(function (i) {
-				if($(this).hasClass('swiper-slide-active')) {
-					var video = $(this).find('video').get(0);
-					if(video !== undefined) {
-						video.play();
-					}
-					
-					if(howtoswipe.activeIndex == 2) {
-						$('.sec_howto').find('.dim').hide()
-						var a0 = setTimeout(function(){
-							$('.howtoswipe._swipe').addClass('active');
-							$('#howtoswipe').removeClass('_auto');
-							$('#howtoswipe').remove()
-
-							clearTimeout(a0);
-						}, 9000);
-					}
-				}else{
-					var video = $(this).find('video').get(0);
-					if(video !== undefined) {
-						video.pause();
-					}
-				}
-			});
-		}
-	});
-
-	var vh = $('#howtoswipe2 .swiper-slide').find('.video').innerHeight();
-	$('#howtoswipe2').find('.swp_paging').css('top', vh - 5);
-	var howtoswipe2 = new Swiper('#howtoswipe2', {
-		allowTouchMove: true,
-		pagination: '#howtoswipe2 .swiper-pagination',
-		paginationClickable: true,
-		breakpoints: {
-			768: {
-				slidesPerView: 1,
-				spaceBetween: 0,
-			},
-			1024: {
-				slidesPerView: 3,
-				spaceBetween: 5,
-			},
-		},
-		on: {
-			slideChange: function () {
-				$('#howtoswipe2 .swiper-slide').each(function () {
-					var video = $(this).find('video').get(0);
+			onSlideChangeStart: function () {		
+				$('#howtoswipe .swiper-slide').each(function (i) {
 					if($(this).hasClass('swiper-slide-active')) {
+						var video = $(this).find('video').get(0);
 						if(video !== undefined) {
 							video.play();
 						}
 					}else{
+						var video = $(this).find('video').get(0);
 						if(video !== undefined) {
 							video.pause();
 						}
 					}
 				});
-			},
+			}
 		}
-	});
-
-	$(window).resize(function (){
-		var vh = $('#howtoswipe .swiper-slide').find('.video').innerHeight();
-		$('#howtoswipe').find('.swp_paging').css('top', vh - 5);
-
+		var settings = {
+			allowTouchMove: true,
+			pagination: '#howtoswipe .swiper-pagination',
+			paginationClickable: true,
+			autoplayDisableOnInteraction: true,
+			slidesPerView: 3,
+			spaceBetween: 5,
+			autoplay: false,
+			breakpoints: {
+				1024: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoplay: 5000,
+				},
+			},
+			onSlideChangeStart: function () {		
+				$('#howtoswipe .swiper-slide').each(function (i) {
+					if($(this).hasClass('swiper-slide-active')) {
+						var video = $(this).find('video').get(0);
+						if(video !== undefined) {
+							video.play();
+						}
+						if(howtoswipe.activeIndex == 2) {
+							$('.sec_howto').find('.dim').hide()
+							var a0 = setTimeout(function(){
+								$('#howtoswipe').removeClass('_auto');
+								howtoswipe.destroy();
+								howtoswipe = new Swiper('#howtoswipe', settings2);
+								clearTimeout(a0);
+							}, 9000);
+						}
+					}else{
+						var video = $(this).find('video').get(0);
+						if(video !== undefined) {
+							video.pause();
+						}
+					}
+				});
+			}
+		}
+		howtoswipe = new Swiper('#howtoswipe', settings);
+	
 		var vh = $('#howtoswipe2 .swiper-slide').find('.video').innerHeight();
 		$('#howtoswipe2').find('.swp_paging').css('top', vh - 5);
-	});
-}
+		var howtoswipe2 = new Swiper('#howtoswipe2', {
+			allowTouchMove: true,
+			pagination: '#howtoswipe2 .swiper-pagination',
+			paginationClickable: true,
+			autoplayDisableOnInteraction: true,
+			slidesPerView: 3,
+			spaceBetween: 5,
+			autoplay: false,
+			breakpoints: {
+				1024: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoplay: 5000,
+				},
+			},
+			on: {
+				slideChange: function () {
+					$('#howtoswipe2 .swiper-slide').each(function () {
+						var video = $(this).find('video').get(0);
+						if($(this).hasClass('swiper-slide-active')) {
+							if(video !== undefined) {
+								video.play();
+							}
+						}else{
+							if(video !== undefined) {
+								video.pause();
+							}
+						}
+					});
+				},
+			}
+		});
+	
+		$(window).resize(function (){
+			var vh = $('#howtoswipe .swiper-slide').find('.video').innerHeight();
+			$('#howtoswipe').find('.swp_paging').css('top', vh - 5);
+	
+			if($(window) < 1024) {
+				var vh = $('#howtoswipe2 .swiper-slide').find('.video').innerHeight();
+				$('#howtoswipe2').find('.swp_paging').css('top', vh - 5);
+			}
+		});
+	}
+});
+
 
 // layer popup control
 var isOpen = false;
