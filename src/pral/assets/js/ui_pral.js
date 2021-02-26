@@ -117,7 +117,7 @@ $(window).on('scroll',function() {
 				var a0 = setTimeout(function(){
 					$('.sec_stabillity').find('.mark').addClass('markOn');
 					clearTimeout(a0);
-				}, 1000);
+				}, 400);
 			}
 			if($(this).hasClass('sec_component')) {
 				$('.titlechart').find('li').removeClass('active')
