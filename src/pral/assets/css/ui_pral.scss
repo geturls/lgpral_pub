@@ -1581,7 +1581,7 @@
 					top: 8.75%;//140px
 					left: 9.375%;//150px
 					dl {
-						margin-bottom: 3.125%;
+						margin-bottom: 6.125%;
 					}
 				}
 			}
@@ -1608,11 +1608,16 @@
 				padding-top: 45vw;
 				background-image: url(../images/usp_0801_bg_pc.jpg);
 				.cont {
+					top: 50%;
+					transform: translateY(-50%);
 					dl {
-						margin-bottom: 50px;
+						margin-bottom: 6.667%;
 						i {
 							width: 122px;
 							height: 122px;
+						}
+						&:last-of-type {
+							margin-bottom: 0;
 						}
 					}
 					dd {
@@ -2195,7 +2200,8 @@
 	}
 	.layer_body.layerpop {
 		.layer_wrap {
-			width:calc(100% - 60px);
+			width: 39vh;
+			// width:calc(100% - 60px);
 			height:80vh;
 			padding-bottom:100px;
 			border-radius: 15px;
