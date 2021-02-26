@@ -1236,7 +1236,7 @@
 			position:relative;
 			width:100%;
 			margin:0 auto;
-			padding-top:calc(85vw + 15px);
+			padding-top: 75.333%;
 			overflow: hidden;
 			background-color: transparent;
 			video {
@@ -1252,9 +1252,8 @@
 		}
 		.info {
 			max-width:calc(100% - 50px);
-			margin:20px auto 0;
-			text-align: center;
-			.sti {
+			margin-top:20px;
+			.summary {
 				margin-top:10px;
 				font-size:16px;
 				line-height: 1.4;
@@ -1263,6 +1262,7 @@
 				margin-top:15px;
 				padding:0;
 				letter-spacing: -.7px;
+				text-align: left;
 				span {
 					display: block;
 					margin-bottom:3px;
@@ -1276,53 +1276,56 @@
 	@media only screen and (min-width: 1024px) {
 		.sec_wear {
 			margin-top: 150px;
-			.top {
-				background-color: transparent;
-				.video {
-					float: left;
-					width: 45%;
-					margin: 0;
-					padding-top: 45vw;
-					margin-right: 5%;
-					&:after {
-						content: '';
-						display: block;
-						clear:both;
+			background-color: transparent;
+			>.row {
+				float: right;
+				width: 50%;
+				padding: 0;
+				.title {
+					margin-top: 60px;
+					margin-bottom: 36px;
+					> p {
+						font-size: 64px;
+					}
+					span {
+						margin-bottom: 28px;
+						font-size: 42px;
+						font-weight: 500;
+						letter-spacing: -0.025em;
 					}
 				}
-				>.row {
-					float: right;
-					width: 50%;
-					padding: 0;
-					.title {
-						margin-top: 60px;
-						margin-bottom: 36px;
-						> p {
-							font-size: 64px;
-						}
-						span {
-							font-size: 42px;
-							margin-bottom: 28px;
-						}
-					}
+				.info {
+					margin-left: 0;
 					.summary {
-						color: #222;
 						font-size: 26px;
 						line-height: 46px;
-					}
-					.row {
-						padding: 0;
-					}
-					&:after {
-						content: '';
-						display: block;
-						clear:both;
+						color: #222;
 					}
 				}
+				&:after {
+					content: '';
+					display: block;
+					clear:both;
+				}
 			}
-			// .desc {
-			// 	display: none;
-			// }
+			.video {
+				float: left;
+				width: 45%;
+				margin-top: 65px;
+				margin-right: 5%;
+				padding-top: 32vw;
+				background-color: transparent;
+				border-radius: 30px;
+				overflow: hidden;
+				&:after {
+					content: '';
+					display: block;
+					clear:both;
+				}
+			}
+			> .desc {
+				display: none;
+			}
 		}
 	} //@media only screen and (min-width: 1024px)
 
