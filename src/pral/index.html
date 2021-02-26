@@ -103,15 +103,17 @@
 						</div>
 					</div>
 				</section>
-				<section id="skillswipe" class="section sec_skill swiper-container" role="skill"><!-- swiper-container -->
-					<!-- <div class="swiper-wrapper"> -->
+				<section id="skillswipe" class="section sec_skill swiper-container" role="skill">
 					<div class="row">
 						<div class="animate slideInUp title"><p><span>미세전류 + LED 빛 에너지</span>콜라겐 복합케어</p></div>
 						<div class="info">
 							<p class="sti pc-view">LED 빛에너지가 세포를 깨웁니다 지친 눈가 피부의 탄력을 채워주세요</p>
 						</div>
-						<div class="video">
-							<video src="./assets/images/usp_0301_mv.mp4" muted="" playsinline="" width="100%"></video>
+						<div class="video m-view">
+							<video src="./assets/images/usp_0301_mv.mp4" muted="" playsinline="" width="100%" loop></video>
+						</div>
+						<div class="video pc-view">
+							<video src="./assets/images/usp_0301_mv_PC.mp4" muted="" playsinline="" width="100%" loop></video>
 						</div>
 						<div class="info">
 							<p class="sti">LED 빛에너지가 세포를 깨웁니다<br>지친 눈가 피부의 탄력을 채워주세요</p>
@@ -122,41 +124,6 @@
 								<span>* 본 기기는 피부 미용 기기로서 의료기기에 해당되지 않으며 어떠한 의학적인 효능/효과도 제공하지 않습니다</span>
 							</p>
 						</div>
-						<!-- </div>
-							<div class="swiper-slide slide02">
-							<div class="title"><p><span>콜라겐 미세전류</span>눈가 전용 복합케어</p></div>
-							<div class="info">
-								<p class="sti pc-view">피부를 탄탄하게 받쳐주는 기둥인 콜라겐<br>미세전류와 LED가 피부 속 콜라겐을 2.7배 증가 시켜<br>피부가 더욱 탄탄해집니다</p>
-							</div>
-							<div class="video">
-								<video src="./assets/images/usp_0302_mv.mp4" muted="" playsinline="" width="100%"></video>
-							</div>
-							<div class="info">
-								<p class="sti">피부를 탄탄하게 받쳐주는 기둥인 콜라겐<br>미세전류와 LED가 피부 속 콜라겐을 2.7배 증가 시켜<br>피부가 더욱 탄탄해집니다</p>
-								<p class="desc">
-									<span>* 이해를 돕기 위해 연출된 화면으로 실사용과 다를 수 있습니다</span>
-									<span>* 피부 단백질 생성 효과 시험 / 인체 피부와 흡사한 돼지 피부 / 1주 2회, 2주 총 4회 사용 기준 / 베이직 케어 모드 3단계 사용 / 크로넥스(주) / 2020. 9. 29 ~ 10. 14</span>
-									<span>* 실제 피부 적용 시와 상이할 수 있으며 피부 특성이나 함께 사용하는 화장품 등 개인 상태에 따라 차이가 있을 수 있습니다</span>
-									<span>* 본 기기는 피부 미용 기기로서 의료기기에 해당되지 않으며 어떠한 의학적인 효능/효과도 제공하지 않습니다</span>
-								</p>
-							</div> 
-						</div>
-						<div class="swiper-slide">
-							<div class="title"><p><span>하이드로젤 아이패치</span>촉촉하게 수분 유지</p></div>
-							<div class="info">
-								<p class="sti pc-view">하이드로젤 아이패치가 피부에 밀착하여 미세전류를 피부 속까지 전달하고<br>케어하는 동안 촉촉하게 수분을 유지해 줍니다</p>
-							</div>
-							<div class="video">
-								<video src="./assets/images/usp_0303_mv.mp4" muted="" playsinline="" width="100%"></video>
-							</div>
-							<div class="info">
-								<p class="sti">하이드로젤 아이패치가 피부에 밀착하여 미세전류를 피부 속까지 전달하고<br>케어하는 동안 촉촉하게 수분을 유지해 줍니다</p>
-								<p class="desc">
-									<span>* 개인용 의료기기의 패치에 사용되는 하이드로젤과 동일한 피부 접촉 안전성이 검증된 하이드로젤 사용</span>
-									<span>* 베스트샵 온라인몰에서 추가 구입 가능합니다(6세트 1박스)</span>
-								</p>
-							</div> 
-						</div> -->
 					</div>
 				</section>
 
@@ -173,8 +140,12 @@
 				</section>
 				<section id="sec_effect2" class="section sec_effect2" role="effect">
 					<div class="effect_bx">
-						<div class="video">
-							<video src="./assets/images/usp_0401_mv.mp4" muted="" playsinline="" width="100%"></video>
+						<div class="video m-view">
+							<video src="./assets/images/usp_0401_mv.mp4" muted="" playsinline="" width="100%" loop></video>
+							<a href="#" onclick="prallayerOpen('prallayerpop');" class="btn_view"></a>
+						</div>
+						<div class="video pc-view">
+							<video src="./assets/images/usp_0401_mv_PC.mp4" muted="" playsinline="" width="100%" loop></video>
 							<a href="#" onclick="prallayerOpen('prallayerpop');" class="btn_view"></a>
 						</div>
 						<div class="desc">
@@ -241,17 +212,14 @@
 					<div class="row">
 						<div class="animate slideInUp title"><p><span>가벼운 고글형 구조</span>내 얼굴에 꼭 맞게 밀착</p></div>
 						<div class="info">
-							<p class="animate slideInUp2 summary">가벼운 고글형 구조로 눈 밑, 눈꼬리에 밀착하여<br>가볍고 촘촘하게 케어해 줍니다</p>
-							<div class="desc slideInUp3 pc-view">
-								<p>알레르기 피부 또는 피부 관련 치료 중이거나 시술 회복 기간인 경우 전문의 상담 후 사용을 권장합니다</p>
-								<p>임신 중이거나 수유 기간 중인 여성은 본 기기의 사용을 권장하지 않습니다</p>
-								<p>가급적 눈을 감고 사용하시는 것을 권장합니다</p>
-								<p>이해를 돕기 위해 연출된 화면으로 실제와 다를 수 있습니다</p>
-							</div>
+							<p class="animate slideInUp2 summary">가벼운 고글형 구조로 눈 밑, 눈꼬리에 밀착하여 가볍고 촘촘하게 케어해 줍니다</p>
 						</div>
 					</div>
-					<div class="video">
-						<video src="./assets/images/usp_0304_mv.mp4" muted="" playsinline="" width="100%"></video>
+					<div class="video m-view">
+						<video src="./assets/images/usp_0304_mv.mp4" muted="" playsinline="" width="100%" loop></video>
+					</div>
+					<div class="video pc-view">
+						<video src="./assets/images/usp_0304_mv_PC.mp4" muted="" playsinline="" width="100%" loop></video>
 					</div>
 					<div class="desc">
 						<p>알레르기 피부 또는 피부 관련 치료 중이거나<br>시술 회복 기간인 경우 전문의 상담 후 사용을 권장합니다</p>
